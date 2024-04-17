@@ -6,7 +6,7 @@ if($_SERVER['REQUEST_METHOD'] == 'DELETE') {
     if(isset($_GET['id'])) {
         $_SESSION['people'] = array_filter($_SESSION['people'], fn($p) => $p['id'] != $_GET['id']);
         
-        header('Location: /list.php');
+        header('Location: /index.php');
         exit;
     }
 }
@@ -39,7 +39,7 @@ else if($_SERVER['REQUEST_METHOD'] == 'PATCH') {
             return $p;
         }, $_SESSION['people']);  
 
-        header('Location: /list.php');
+        header('Location: /index.php');
         exit;
     }
 }

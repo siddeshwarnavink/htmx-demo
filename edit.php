@@ -1,5 +1,13 @@
-<a hx-get="index.php" hx-target="body" hx-swap="innerHTML">&larr; Back</a>
+<html>
+    <head>
+        <title>Edit User</title>
+        
+        <?php require('partials/head.php'); ?>
+    </head>
+    <body>
+        <main hx-boost="true" hx-target="body">
 
+            <a href="index.php" style="display: block; margin-bottom: 12px;">&larr; Back</a>
 <?php
 
 session_start(); 
@@ -18,7 +26,10 @@ if(isset($_GET['id'])) {
 
     if($person != null) {
 ?>
-    <form hx-patch="/api.php" hx-swap="innerHTML">
+    <form action="/api.php"
+        method="PATCH"
+        hx-boost="true" 
+        hx-swap="innerHTML">
         <input type="hidden" name="id" value="<?php echo $person['id']; ?>">
         <div class="form-group">
             <label>Name</label>
@@ -46,3 +57,8 @@ if(isset($_GET['id'])) {
         }
 }
 ?>
+        </main>
+
+        <?php require('partials/script.php'); ?>
+    </body>
+</html>
