@@ -20,6 +20,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     echo json_encode([ 'message' => 'User created', 'user' => $body ]);
 } else {
+    $people = $_SESSION['people'];
+
+    if(isset($_GET['q']) && trim($_GET['q']) != '') {
+        $people = array_filter($people, fn($p) => str_contains(strtolower($p['name']), strtolower($_GET['q'])));
+    }
 ?>
 <table>
     <tr>
@@ -29,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <th></th>
     </tr>
 <?php
-    foreach($_SESSION['people'] as $person) {
+    foreach($people as $person) {
 ?>
     <tr>
         <td><?php echo $person['id'] ?></td>

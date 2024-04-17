@@ -9,6 +9,29 @@ a {
     color: #0099cc;
 }
 
+.search-input {
+    outline: none;
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.htmx-indicator {
+    display: none;
+    opacity: 0;
+    color: #494949;
+    margin: 12px 0;
+}
+
+.htmx-indicator.htmx-request {
+    display: block;
+}
+
+.htmx-indicator img {
+    margin-right: 5px;
+}
+
 table {
     border-collapse: collapse;
 }
