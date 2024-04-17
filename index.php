@@ -29,5 +29,7 @@
         <div id="users_list">
         <?php require('list.php'); ?>
         </div>
+        
+        <script src="script.js"></script>
     </body>
 </html>
