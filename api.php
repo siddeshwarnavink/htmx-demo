@@ -4,7 +4,10 @@ session_start();
 
 
 $_SESSION['people'] = [
-    ['id' => 'a', 'name' => 'John doe', 'age' => 23]
+    ['id' => 'a', 'name' => 'John doe', 'age' => 23],
+    ['id' => 'b', 'name' => 'Kevin', 'age' => 15],
+    ['id' => 'c', 'name' => 'Luke', 'age' => 27],
+    ['id' => 'd', 'name' => 'Moo', 'age' => 35]
 ];
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -17,10 +20,27 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     echo json_encode([ 'message' => 'User created', 'user' => $body ]);
 } else {
+?>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th></th>
+    </tr>
+<?php
     foreach($_SESSION['people'] as $person) {
 ?>
-<div class="card">
-    <h3><?php echo $person['name'] ?></h3>
-    <p>Age: <?php echo $person['age'] ?></p>
-</div>
-<?php }}?>
+    <tr>
+        <td><?php echo $person['id'] ?></td>
+        <td><?php echo $person['name'] ?></td>
+        <td><?php echo $person['age'] ?></td>
+        <td class="actions">
+            <a href="#">Edit</a>
+
+            <a href="#">Delete</a>
+        </td>
+    </tr>
+<?php }?>
+</table>
+<?php } ?>

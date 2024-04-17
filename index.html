@@ -2,15 +2,15 @@
     <head>
         <title>HTMX Demo</title>
 
-          <script src="https://unpkg.com/htmx.org@1.9.11"></script>
+        <script src="https://unpkg.com/htmx.org@1.9.11"></script>
+        <link rel="stylesheet" href="/style.css" />
     </head>
-    <body>
-        <h1>HTMX demo</h1>
-
-        <button hx-get="/api.php"
-            hx-trigger="click"
-            hx-target="#users_list"
-            hx-swap="outerHTML">Load Users</button>
+    <body
+        hx-get="/api.php"
+        hx-trigger="load"
+        hx-target="#users_list"
+        hx-swap="outerHTML">
+        <h1>People List</h1>
 
         <div id="users_list"></div>
     </body>
