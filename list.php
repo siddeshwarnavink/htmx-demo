@@ -40,7 +40,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <td><?php echo $person['name'] ?></td>
         <td><?php echo $person['age'] ?></td>
         <td class="actions">
-            <a href="#">Edit</a>
+            <a hx-get="/edit.php?id=<?php echo $person['id']; ?>&prev=<?php echo $_SERVER['REQUEST_URI']; ?>" hx-target="#users_list" hx-swap="innerHTML">Edit</a>
 
             <a href="#">Delete</a>
         </td>
