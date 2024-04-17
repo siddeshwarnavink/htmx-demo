@@ -1,4 +1,4 @@
-<a hx-get="<?php echo $_GET['prev'] ?? '/list.php'; ?>" hx-target="#users_list" hx-swap="innerHTML">&larr; Back</a>
+<a hx-get="index.php" hx-target="body" hx-swap="innerHTML">&larr; Back</a>
 
 <?php
 

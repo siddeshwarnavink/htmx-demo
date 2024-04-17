@@ -33,7 +33,7 @@ if(isset($_GET['q']) && trim($_GET['q']) != '') {
         <td><?php echo $person['name'] ?></td>
         <td><?php echo $person['age'] ?></td>
         <td class="actions">
-            <a hx-get="/edit.php?id=<?php echo $person['id']; ?>&prev=<?php echo $_SERVER['REQUEST_URI']; ?>" hx-target="#users_list" hx-swap="innerHTML">Edit</a>
+            <a hx-get="/edit.php?id=<?php echo $person['id']; ?>&prev=<?php echo $_SERVER['REQUEST_URI']; ?>" hx-target="body" hx-swap="innerHTML">Edit</a>
 
             <a href="#">Delete</a>
         </td>
