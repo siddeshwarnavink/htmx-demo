@@ -2,7 +2,15 @@
 
 session_start();
 
-if($_SERVER['REQUEST_METHOD'] == 'PATCH') {
+if($_SERVER['REQUEST_METHOD'] == 'DELETE') {
+    if(isset($_GET['id'])) {
+        $_SESSION['people'] = array_filter($_SESSION['people'], fn($p) => $p['id'] != $_GET['id']);
+        
+        header('Location: /list.php');
+        exit;
+    }
+}
+else if($_SERVER['REQUEST_METHOD'] == 'PATCH') {
     $errors = [];
 
     parse_str(file_get_contents('php://input'), $data);

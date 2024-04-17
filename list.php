@@ -33,9 +33,17 @@ if(isset($_GET['q']) && trim($_GET['q']) != '') {
         <td><?php echo $person['name'] ?></td>
         <td><?php echo $person['age'] ?></td>
         <td class="actions">
-            <a hx-get="/edit.php?id=<?php echo $person['id']; ?>&prev=<?php echo $_SERVER['REQUEST_URI']; ?>" hx-target="body" hx-swap="innerHTML">Edit</a>
+            <a hx-get="/edit.php?id=<?php echo $person['id']; ?>&prev=<?php echo $_SERVER['REQUEST_URI']; ?>"
+                hx-target="body"
+                hx-swap="innerHTML">Edit</a>
 
-            <a href="#">Delete</a>
+            <a hx-delete="/api.php?id=<?php echo $person['id']; ?>"
+                onClick="Swal.fire({icon: 'question', title: 'Do you want to delete?'}).then((result) => {
+                    if(result.isConfirmed){
+                      htmx.trigger(this, 'confirmed');  
+                    } 
+                })"
+                hx-trigger='confirmed'>Delete</a>
         </td>
     </tr>
 <?php }?>
