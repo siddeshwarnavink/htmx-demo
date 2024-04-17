@@ -6,19 +6,18 @@
         <link rel="stylesheet" href="/style.css" />
     </head>
     <body
-        hx-get="/api.php"
+        hx-get="/list.php"
         hx-trigger="load"
         hx-target="#users_list"
         hx-swap="innerHTML">
         <h1>People List</h1>
-
 
         <input class="search-input"
             autocomplete="off"
             type="search"
             name="q"
             placeholder="Search by name..."
-            hx-get="/api.php"
+            hx-get="/list.php"
             hx-indicator=".htmx-indicator"
             hx-trigger="input changed delay:500ms, q"
             hx-target="#users_list" />
@@ -27,6 +26,8 @@
             <img src="/img/bars.svg"/> Searching... 
         </div>
 
-        <div id="users_list"></div>
+        <div id="users_list">
+        <?php require('list.php'); ?>
+        </div>
     </body>
 </html>

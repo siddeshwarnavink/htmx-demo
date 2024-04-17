@@ -2,7 +2,6 @@
 
 session_start();
 
-
 $_SESSION['people'] = [
     ['id' => 'a', 'name' => 'John doe', 'age' => 23],
     ['id' => 'b', 'name' => 'Kevin', 'age' => 15],
